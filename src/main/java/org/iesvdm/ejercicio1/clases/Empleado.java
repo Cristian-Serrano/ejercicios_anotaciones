@@ -1,4 +1,6 @@
-package org.iesvdm.ejercicio1;
+package org.iesvdm.ejercicio1.clases;
+
+import org.iesvdm.ejercicio1.anotaciones.Empleados;
 
 public class Empleado {
     private String nombre;
@@ -6,4 +8,7 @@ public class Empleado {
     private String direccion;
     private String dni;
     private Integer telefono;
+
+
+
 }

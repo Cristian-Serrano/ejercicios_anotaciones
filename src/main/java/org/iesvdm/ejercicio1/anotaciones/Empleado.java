@@ -1,13 +1,10 @@
 package org.iesvdm.ejercicio1.anotaciones;
 
-import java.lang.annotation.Inherited;
-import java.lang.annotation.Repeatable;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.*;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Inherited
-@Repeatable()
+@Target(ElementType.TYPE)
+@Repeatable(Empleados.class)
 public @interface Empleado {
     String nombre();
     String apellidos();
