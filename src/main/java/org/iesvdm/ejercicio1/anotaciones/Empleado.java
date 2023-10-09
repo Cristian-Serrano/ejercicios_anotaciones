@@ -10,7 +10,7 @@ public @interface Empleado {
     String apellidos();
     String dni();
     String direccion();
-    String telefono();
+    int telefono();
     String clase();
     int codigoDespacho();
 }
