@@ -2,7 +2,6 @@ package org.iesvdm.ejercicio1.clases;
 
 public class Tecnico extends Operario{
     String perfil;
-
     public Tecnico(String nombre, String apellidos, String direccion, String dni, Integer telefono, String perfil, int codigoTaller) {
         super(nombre, apellidos, direccion, dni, telefono);
         this.perfil = perfil;

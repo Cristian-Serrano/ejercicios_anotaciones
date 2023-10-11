@@ -14,6 +14,4 @@ public abstract class Operario extends Empleado{
     public void setCodigoTaller(Integer codigoTaller) {
         this.codigoTaller = codigoTaller;
     }
-
-
 }

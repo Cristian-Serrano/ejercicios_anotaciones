@@ -9,8 +9,9 @@ import java.util.HashSet;
 
 public class EmpresaTest {
     /**
-     * Compruebo que los empleados de las anotaciones de empresa están realmente en el hashset
-     * y tienen los atributos corresctos, etc.
+     * Se comprueba que el toString de empresa es el esperado,
+     * así se comprueba que los empleados de las anotaciones de empresa están realmente en el hashset de empresa
+     * y tienen los atributos correctos.
      */
     @Test
     public void testProcesadorDeContexto(){
