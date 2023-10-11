@@ -8,7 +8,14 @@ public class Directivo extends Empleado {
         this.codigoDespacho = codigoDespacho;
     }
 
-    public Directivo(Integer codigoDespacho) {
-        this.codigoDespacho = codigoDespacho;
+    @Override
+    public String toString() {
+        return "Directivo{" +
+                "nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", dni='" + dni + '\'' +
+                ", telefono=" + telefono +
+                '}';
     }
 }

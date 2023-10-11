@@ -1,6 +1,6 @@
 package org.iesvdm.ejercicio1.clases;
 
-public class Empleado {
+public abstract class Empleado {
     String nombre;
     String apellidos;
     String direccion;
@@ -15,7 +15,4 @@ public class Empleado {
         this.telefono = telefono;
     }
 
-    public Empleado()
-    {
-    }
 }

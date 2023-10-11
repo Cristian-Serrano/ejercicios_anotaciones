@@ -17,6 +17,9 @@ public @interface EmpleadoAnotacion {
     String direccion();
     int telefono();
     String clase();
-//El codigo de despacho es siempre 0 a no ser que sea de clase directivo
-    int codigoDespacho();
+    //El codigo de despacho es siempre 0 a no ser que sea de clase directivo
+    int codigoDespacho() default 0;
+    int codigoTaller() default 0;
+    String categoria() default "";
+    String perfil() default "";
 }

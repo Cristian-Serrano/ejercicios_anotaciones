@@ -39,7 +39,8 @@ import java.util.Set;
         telefono = 333333333,
         clase = "Tecnico",
         //El codigo de despacho es siempre 0 a no ser que sea de clase directivo
-        codigoDespacho = 0
+        perfil = "Devops",
+        codigoTaller = 3
 )
 @EmpleadoAnotacion(nombre = "Alfonso",
         apellidos = "Lopez Martin",
@@ -47,7 +48,8 @@ import java.util.Set;
         direccion = "calle Pio Baroja",
         telefono = 222222222,
         clase = "Oficial",
-        codigoDespacho = 0
+        categoria = "horario de tarde",
+        codigoTaller = 1
 )
 @EmpleadoAnotacion(nombre = "Mario",
         apellidos = "Romero Ramiro",
@@ -78,6 +80,10 @@ public class Empresa {
         this.empleadoSet = empleadoSet;
     }
 
+    /**
+     * Se crea un objeto por cada empleado pasado por anotación
+     * @param empresa
+     */
     public static void cargadorDeContexto(Empresa empresa) {
         EmpleadosAnotacion empleadosAnotacionPadre = empresa.getClass().getAnnotation(EmpleadosAnotacion.class);
         EmpleadoAnotacion[] empleadoAnotacionHijas = empleadosAnotacionPadre.value();
@@ -90,14 +96,17 @@ public class Empresa {
             String direccion = empleadoAnotacionHija.direccion();
             int telefono = empleadoAnotacionHija.telefono();
             String clase = empleadoAnotacionHija.clase();
-            int codigoDespacho = empleadoAnotacionHija.codigoDespacho   ();
+            int codigoDespacho = empleadoAnotacionHija.codigoDespacho();
+            int codigoTaller = empleadoAnotacionHija.codigoTaller();
+            String categoria = empleadoAnotacionHija.categoria();
+            String perfil = empleadoAnotacionHija.perfil();
 
             if (clase.equals("Oficial")) {
-                empresa.getEmpleadoSet().add(new Oficial(nombre,apellidos,direccion,dni,telefono));
+                empresa.getEmpleadoSet().add(new Oficial(nombre,apellidos,direccion,dni,telefono,categoria,codigoTaller));
             } else if (clase.equals("Directivo")) {
                 empresa.getEmpleadoSet().add(new Directivo(nombre,apellidos,direccion,dni,telefono,codigoDespacho));
             } else if (clase.equals("Tecnico")) {
-                empresa.getEmpleadoSet().add(new Directivo(nombre,apellidos,direccion,dni,telefono,codigoDespacho));
+                empresa.getEmpleadoSet().add(new Tecnico(nombre,apellidos,direccion,dni,telefono,perfil,codigoDespacho));
             }
         }
     }
