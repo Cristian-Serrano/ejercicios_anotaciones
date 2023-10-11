@@ -8,17 +8,50 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/*@EmpleadosAnotacion({@EmpleadoAnotacion(nombre = "Fernando Gonzalo",
+            apellidos = "Fernandez Gonzalez",
+            dni = "12345432G",
+            direccion = "calle Luis Neruda",
+            telefono = 333333333,
+            clase = "Tecnico",
+            //El codigo de despacho es siempre 0 a no ser que sea de clase directivo
+            codigoDespacho = 0),
+        @EmpleadoAnotacion(nombre = "Alfonso",
+            apellidos = "Lopez Martin",
+            dni = "45456565L",
+            direccion = "calle Pio Baroja",
+            telefono = 222222222,
+            clase = "Oficial",
+            codigoDespacho = 0
+        ),
+        @EmpleadoAnotacion(nombre = "Mario",
+            apellidos = "Romero Ramiro",
+            dni = "1111111L",
+            direccion = "calle farolas",
+            telefono = 111111111,
+            clase = "Directivo",
+            codigoDespacho = 1
+        )})*/
+@EmpleadoAnotacion(nombre = "Fernando Gonzalo",
+        apellidos = "Fernandez Gonzalez",
+        dni = "12345432G",
+        direccion = "calle Luis Neruda",
+        telefono = 333333333,
+        clase = "Tecnico",
+        //El codigo de despacho es siempre 0 a no ser que sea de clase directivo
+        codigoDespacho = 0
+)
 @EmpleadoAnotacion(nombre = "Alfonso",
         apellidos = "Lopez Martin",
         dni = "45456565L",
-        direccion = "calle farolas",
+        direccion = "calle Pio Baroja",
         telefono = 222222222,
-        clase = "Directivo",
-        codigoDespacho = 2
+        clase = "Oficial",
+        codigoDespacho = 0
 )
 @EmpleadoAnotacion(nombre = "Mario",
         apellidos = "Romero Ramiro",
-        dni = "45456565L",
+        dni = "1111111L",
         direccion = "calle farolas",
         telefono = 111111111,
         clase = "Directivo",
@@ -63,9 +96,10 @@ public class Empresa {
                 empresa.getEmpleadoSet().add(new Oficial(nombre,apellidos,direccion,dni,telefono));
             } else if (clase.equals("Directivo")) {
                 empresa.getEmpleadoSet().add(new Directivo(nombre,apellidos,direccion,dni,telefono,codigoDespacho));
+            } else if (clase.equals("Tecnico")) {
+                empresa.getEmpleadoSet().add(new Directivo(nombre,apellidos,direccion,dni,telefono,codigoDespacho));
             }
-            }
-
+        }
     }
 
     @Override
