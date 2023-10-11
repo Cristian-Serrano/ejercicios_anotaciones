@@ -8,6 +8,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * @author cristian-serrano
+ */
 //Ambas formas de poner esta anotacion son equivalentes
 /*@EmpleadosAnotacion({@EmpleadoAnotacion(nombre = "Fernando Gonzalo",
         apellidos = "Fernandez Gonzalez",
