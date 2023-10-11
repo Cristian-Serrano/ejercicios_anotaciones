@@ -1,7 +1,5 @@
 package org.iesvdm.ejercicio1.clases;
 
-import org.iesvdm.ejercicio1.anotaciones.Empleados;
-
 public class Empleado {
     String nombre;
     String apellidos;

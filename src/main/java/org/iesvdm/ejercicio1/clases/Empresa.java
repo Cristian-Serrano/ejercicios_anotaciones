@@ -1,14 +1,14 @@
 package org.iesvdm.ejercicio1.clases;
 
-import org.iesvdm.ejercicio1.anotaciones.Empleado;
-import org.iesvdm.ejercicio1.anotaciones.Empleados;
+import org.iesvdm.ejercicio1.anotaciones.EmpleadoAnotacion;
+import org.iesvdm.ejercicio1.anotaciones.EmpleadosAnotacion;
 
 import java.lang.annotation.Annotation;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Empleado(nombre = "Alfonso",
+@EmpleadoAnotacion(nombre = "Alfonso",
         apellidos = "Lopez Martin",
         dni = "45456565L",
         direccion = "calle farolas",
@@ -16,7 +16,7 @@ import java.util.Set;
         clase = "Directivo",
         codigoDespacho = 2
 )
-@Empleado(nombre = "Mario",
+@EmpleadoAnotacion(nombre = "Mario",
         apellidos = "Romero Ramiro",
         dni = "45456565L",
         direccion = "calle farolas",
@@ -46,23 +46,26 @@ public class Empresa {
     }
 
     public static void cargadorDeContexto(Empresa empresa) {
-        empresa.getClass().getAnnotation(Empleados.class);
-        Annotation[] anotaciones = empresa.getClass().getAnnotations();
+        EmpleadosAnotacion empleadosAnotacionPadre = empresa.getClass().getAnnotation(EmpleadosAnotacion.class);
+        EmpleadoAnotacion[] empleadoAnotacionHijas = empleadosAnotacionPadre.value();
 
-        for (Annotation anotacion : anotaciones) {
-            if (anotacion instanceof Empleado) {
-                System.out.println(anotacion);
+        for (EmpleadoAnotacion empleadoAnotacionHija : empleadoAnotacionHijas) {
+            System.out.println(empleadoAnotacionHija);
+            String nombre = empleadoAnotacionHija.nombre();
+            String apellidos = empleadoAnotacionHija.apellidos();
+            String dni = empleadoAnotacionHija.dni();
+            String direccion = empleadoAnotacionHija.direccion();
+            int telefono = empleadoAnotacionHija.telefono();
+            String clase = empleadoAnotacionHija.clase();
+            int codigoDespacho = empleadoAnotacionHija.codigoDespacho   ();
 
-                String nombre = ((Empleado) anotacion).nombre();
-                String apellidos = ((Empleado) anotacion).apellidos();
-                String dni = ((Empleado) anotacion).dni();
-                String direccion = ((Empleado) anotacion).direccion();
-                int telefono = ((Empleado) anotacion).telefono();
-                String clase = ((Empleado) anotacion).clase();
-
-                empresa.getEmpleadoSet().add(new org.iesvdm.ejercicio1.clases.Empleado(nombre,apellidos,direccion,dni,telefono));
+            if (clase.equals("Oficial")) {
+                empresa.getEmpleadoSet().add(new Oficial(nombre,apellidos,direccion,dni,telefono));
+            } else if (clase.equals("Directivo")) {
+                empresa.getEmpleadoSet().add(new Directivo(nombre,apellidos,direccion,dni,telefono,codigoDespacho));
             }
-        }
+            }
+
     }
 
     @Override
